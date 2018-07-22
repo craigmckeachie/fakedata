@@ -1,0 +1,18 @@
+{
+  "name": "fakedata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api": "json-server ./api/db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rc15",
+    "json-server": "^0.14.0",
+    "lodash": "^4.17.10"
+  }
+}
