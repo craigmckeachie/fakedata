@@ -1,21 +1,28 @@
 const faker = require('faker');
 const _ = require('lodash');
 
-// card = faker.helpers.createCard();
-// // let product = faker.fake('{{image.business}}');
-// console.log(JSON.stringify(card));
+// let result = faker.random.boolean();
+// console.log(JSON.stringify(result));
 
 const db = {
-  users: _.times(10000, number => {
+  projects: _.times(100, number => {
     return {
       id: number,
-      name: faker.name.findName(),
-      avatar: faker.internet.avatar()
+      name: faker.company.companyName(),
+      description: faker.company.catchPhrase(),
+      imageUrl:
+        'assets/placeimg_500_300_arch' + faker.random.number(12) + '.jpg',
+      contractTypeId: faker.random.number(7),
+      contractSignedOn: faker.date.past(9, '09/10/2018'),
+      budget: faker.random.number({ min: 20000, max: 100000, precision: 1 }),
+      isActive: faker.random.boolean(),
+      editing: false
     };
   })
 };
+// console.log(db);
 
-json = JSON.stringify(db);
+json = JSON.stringify(db, null, 2);
 // console.log(json);
 
 const fs = require('fs');
@@ -23,6 +30,6 @@ fs.writeFile('./api/db.json', json, function(err) {
   if (err) {
     return console.error(err);
   } else {
-    console.log('Mock data generated.');
+    console.log('Mock data generated as json.');
   }
 });
