@@ -9,10 +9,13 @@ const db = {
     return {
       id: number,
       name: faker.company.companyName(),
-      description: faker.company.catchPhrase(),
+      description:
+        faker.company.catchPhrase() + '. ' + faker.lorem.sentence(10),
       imageUrl:
-        'assets/placeimg_500_300_arch' + faker.random.number(12) + '.jpg',
-      contractTypeId: faker.random.number(7),
+        'assets/placeimg_500_300_arch' +
+        faker.random.number({ min: 1, max: 12 }) +
+        '.jpg',
+      contractTypeId: faker.random.number({ min: 1, max: 7 }),
       contractSignedOn: faker.date.past(9, '09/10/2018'),
       budget: faker.random.number({ min: 20000, max: 100000, precision: 1 }),
       isActive: faker.random.boolean(),
